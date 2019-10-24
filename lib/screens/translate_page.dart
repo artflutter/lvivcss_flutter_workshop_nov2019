@@ -1,20 +1,22 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:lvivcss_flutter_workshop_nov2019/models/languages/language_response.dart';
+import 'package:lvivcss_flutter_workshop_nov2019/components/translate_widget.dart';
 
-Future<LanguagesResponse> getLanguages() async {
-  var dio = Dio();
-  Response response = await dio.get(
-      "https://translation.googleapis.com/language/translate/v2/languages?key=AIzaSyAqnBxr-G5811raZcYmWODowYofAnd6TjU&target=en");
-
-  return LanguagesResponse.fromJsonMap(response.data["data"]);
+class TranslatePage extends StatefulWidget {
+  @override
+  _TranslatePageState createState() => _TranslatePageState();
 }
 
-class TranslatePage extends StatelessWidget {
+class _TranslatePageState extends State<TranslatePage> {
   @override
   Widget build(BuildContext context) {
-    getLanguages();
-
-    return Container();
+    return Column(
+      children: <Widget>[
+        TranslateWidget(),
+        Text(
+          'Translations',
+          style: TextStyle(color: Colors.grey, fontSize: 12),
+        ),
+      ],
+    );
   }
 }

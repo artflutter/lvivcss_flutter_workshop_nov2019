@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lvivcss_flutter_workshop_nov2019/screens/main_page.dart';
+
+import 'screens/main_page.dart';
 
 void main() => runApp(GoogleTranslateApp());
 

@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:google_translate_s/models/translations/translation.dart';
+import 'package:lvivcss_flutter_workshop_nov2019/models/translations/translation.dart';
 
 class TranslationResponse {
   List<Translation> translations;
