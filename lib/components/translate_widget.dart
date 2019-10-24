@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:lvivcss_flutter_workshop_nov2019/components/card.dart';
+import 'package:lvivcss_flutter_workshop_nov2019/components/language_dropdown.dart';
 import 'package:lvivcss_flutter_workshop_nov2019/models/languages/language.dart';
 import 'package:lvivcss_flutter_workshop_nov2019/models/languages/language_response.dart';
-
-import 'card.dart';
-import 'language_dropdown.dart';
+import 'package:lvivcss_flutter_workshop_nov2019/models/translation_request.dart';
 
 Language detectLanguage = Language(language: "auto", name: "Detect");
 
@@ -17,6 +17,10 @@ Future<LanguagesResponse> getLanguages() async {
 }
 
 class TranslateWidget extends StatefulWidget {
+  final Function(TranslationRequest) onChange;
+
+  TranslateWidget({@required this.onChange});
+
   @override
   _TranslateWidgetState createState() => _TranslateWidgetState();
 }
@@ -38,6 +42,10 @@ class _TranslateWidgetState extends State<TranslateWidget> {
         this.to = this.languagesResponse.languages[0];
       });
     });
+  }
+
+  void onChange() {
+    this.widget.onChange(TranslationRequest(this.from, this.to, this.text));
   }
 
   @override
@@ -62,6 +70,8 @@ class _TranslateWidgetState extends State<TranslateWidget> {
                     this.setState(() {
                       this.from = value;
                     });
+
+                    this.onChange();
                   },
                   selected: this.from,
                 ),
@@ -74,6 +84,8 @@ class _TranslateWidgetState extends State<TranslateWidget> {
                       this.from = this.to;
                       this.to = tmp;
                     });
+
+                    this.onChange();
                   }
                 },
                 child: Padding(
@@ -90,6 +102,7 @@ class _TranslateWidgetState extends State<TranslateWidget> {
                     this.setState(() {
                       this.to = value;
                     });
+                    this.onChange();
                   },
                   selected: this.to,
                 ),
@@ -101,6 +114,8 @@ class _TranslateWidgetState extends State<TranslateWidget> {
               this.setState(() {
                 this.text = value;
               });
+
+              this.onChange();
             },
           ),
         ],
