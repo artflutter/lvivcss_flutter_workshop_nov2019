@@ -28,7 +28,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   dio: ^3.0.3
-
+  path_provider: ^1.4.0
+  crypted_preferences: ^0.0.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

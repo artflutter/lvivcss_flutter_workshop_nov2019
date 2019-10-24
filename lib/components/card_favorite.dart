@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:lvivcss_flutter_workshop_nov2019/components/card.dart';
 import 'package:lvivcss_flutter_workshop_nov2019/models/translation_entity.dart';
+import 'package:lvivcss_flutter_workshop_nov2019/models/translation_pref.dart';
+
+import '../prefs.dart';
+import 'card.dart';
 
 class CardFavorite extends StatefulWidget {
   final TranslationEntity translation;
@@ -39,6 +42,16 @@ class _CardFavoriteState extends State<CardFavorite> {
               this.widget.child,
               InkWell(
                 onTap: () async {
+                  TranslationPref translationPref = await translationPrefRead();
+
+                  if (!this.saved) {
+                    translationPref.add(this.widget.translation);
+                  } else {
+                    translationPref.remove(this.widget.translation);
+                  }
+
+                  await translationPrefWrite(translationPref);
+
                   this.setState(() {
                     this.saved = !this.saved;
                   });

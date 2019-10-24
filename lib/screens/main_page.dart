@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lvivcss_flutter_workshop_nov2019/screens/favorite_page.dart';
 import 'package:lvivcss_flutter_workshop_nov2019/screens/translate_page.dart';
+
+import 'favorite_page.dart';
 
 class MainPage extends StatefulWidget {
   @override

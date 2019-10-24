@@ -1,10 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:lvivcss_flutter_workshop_nov2019/components/card.dart';
-import 'package:lvivcss_flutter_workshop_nov2019/components/language_dropdown.dart';
 import 'package:lvivcss_flutter_workshop_nov2019/models/languages/language.dart';
 import 'package:lvivcss_flutter_workshop_nov2019/models/languages/language_response.dart';
 import 'package:lvivcss_flutter_workshop_nov2019/models/translation_request.dart';
+
+import 'language_dropdown.dart';
 
 Language detectLanguage = Language(language: "auto", name: "Detect");
 

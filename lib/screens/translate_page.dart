@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:lvivcss_flutter_workshop_nov2019/components/card_empty.dart';
 import 'package:lvivcss_flutter_workshop_nov2019/components/card_favorite.dart';
 import 'package:lvivcss_flutter_workshop_nov2019/components/translate_widget.dart';
 import 'package:lvivcss_flutter_workshop_nov2019/components/translation_widget.dart';
@@ -55,7 +56,7 @@ class _TranslatePageState extends State<TranslatePage> {
               AsyncSnapshot<TranslationResponse> snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.none:
-                return Container();
+                return CardEmpty();
               case ConnectionState.active:
               case ConnectionState.waiting:
                 return Container();
