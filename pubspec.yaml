@@ -27,7 +27,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  dio: ^3.0.3
+  dio: ">=3.0.3 <6.0.0"
   path_provider: ^1.4.0
   crypted_preferences: ^0.0.2
 
